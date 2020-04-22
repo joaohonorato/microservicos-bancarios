@@ -36,10 +36,78 @@ services:
       - eureka
     networks:
       - produto-db-network
+      - conta-db-network
+      - pessoa-db-network
       - eureka-network
     ports:
       - "8082:8082"
+  db-conta:
+    image: mysql:5.7
+    networks:
+      - conta-db-network
+    restart: always
+    ports:
+      - "3307:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=gerenciador
+      - MYSQL_PASSWORD=conta
+      - MYSQL_USER=gerenciador
+      - MYSQL_DATABASE=gerenciar-conta
+  gerenciar-conta:
+    build:
+      context: .
+      dockerfile: gerenciar-conta/Dockerfile.conta.dev
+    image: conta
+    environment:
+      - DB_HOST=db-conta
+      - DB_PORT=3307
+      - EUREKA_HOST=eureka
+      - EUREKA_PORT=8761
+    depends_on:
+      - db-conta
+      - eureka
+    networks:
+      - produto-db-network
+      - conta-db-network
+      - pessoa-db-network
+      - eureka-network
+    ports:
+      - "8081:8081"
+  db-pessoa:
+    image: mysql:5.7
+    networks:
+      - conta-db-network
+    restart: always
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=gerenciador
+      - MYSQL_PASSWORD=conta
+      - MYSQL_USER=gerenciador
+      - MYSQL_DATABASE=gerenciar-conta
+  gerenciar-pessoa:
+    build:
+      context: .
+      dockerfile: gerenciar-pessoa/Dockerfile.pessoa.dev
+    image: pessoa
+    environment:
+      - DB_HOST=db-pessoa
+      - DB_PORT=3306
+      - EUREKA_HOST=eureka
+      - EUREKA_PORT=8761
+    depends_on:
+      - db-pessoa
+      - eureka
+    networks:
+      - produto-db-network
+      - conta-db-network
+      - pessoa-db-network
+      - eureka-network
+    ports:
+      - "8080:8080"
 
 networks:
   produto-db-network:
   eureka-network:
+  conta-db-network:
+  pessoa-db-network:
