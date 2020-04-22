@@ -3,7 +3,7 @@ services:
   eureka:
     build:
       context: .
-      dockerfile: localizador-servico/Dockerfile
+      dockerfile: localizador-servico/Dockerfile.compose
     image: eureka
     ports:
       - "8761:8761"
@@ -25,7 +25,7 @@ services:
   gerenciar-produto:
     build:
       context: .
-      dockerfile: gerenciar-produto/Dockerfile.produto.dev
+      dockerfile: gerenciar-produto/Dockerfile.compose
     image: produto
     environment:
       - DB_HOST=db-produto
@@ -41,7 +41,7 @@ services:
       - pessoa-db-network
       - eureka-network
     ports:
-      - "8082:8082"
+      - "8083:8083"
   db-conta:
     image: mysql:5.7
     networks:
@@ -58,7 +58,7 @@ services:
   gerenciar-conta:
     build:
       context: .
-      dockerfile: gerenciar-conta/Dockerfile.conta.dev
+      dockerfile: gerenciar-conta/Dockerfile.compose
     image: conta
     environment:
       - DB_HOST=db-conta
@@ -74,7 +74,7 @@ services:
       - pessoa-db-network
       - eureka-network
     ports:
-      - "8081:8081"
+      - "8082:8082"
   db-pessoa:
     image: mysql:5.7
     networks:
@@ -91,7 +91,7 @@ services:
   gerenciar-pessoa:
     build:
       context: .
-      dockerfile: gerenciar-pessoa/Dockerfile.pessoa.dev
+      dockerfile: gerenciar-pessoa/Dockerfile.compose
     image: pessoa
     environment:
       - DB_HOST=db-pessoa
@@ -107,10 +107,10 @@ services:
       - pessoa-db-network
       - eureka-network
     ports:
-      - "8080:8080"
+      - "8081:8081"
 
 networks:
   produto-db-network:
-  eureka-network:
   conta-db-network:
   pessoa-db-network:
+  eureka-network:
