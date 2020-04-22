@@ -1,0 +1,9 @@
+FROM java:openjdk-8u111-alpine
+ARG JAR_FILE=gerenciar-pessoa/target/*.jar
+RUN apk --no-cache add curl
+CMD     ./wait-for -t 300 $EUREKA_HOST:$EUREKA_PORT -- \
+        ./wait-for -t 300 $MYSQL_PESSOA_HOST:$MYSQL_PESSOA_PORT -- \
+        echo "All dependencies ready. Starting application..." && \
+        java ${JAVA_OPTS} -jar gerenciar-pessoa.jar
+COPY ${JAR_FILE} gerenciar-pessoa.jar
+COPY wait-for wait-for
