@@ -4,7 +4,6 @@ import com.sistema.produto.gerenciarconta.dominio.ApiResposta;
 import com.sistema.produto.gerenciarconta.dominio.payload.ProdutoPayload;
 import com.sistema.produto.gerenciarconta.servico.rest.ProdutoServico;
 import com.sistema.produto.gerenciarconta.util.Constantes;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 

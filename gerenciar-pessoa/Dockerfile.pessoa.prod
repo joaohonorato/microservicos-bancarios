@@ -11,6 +11,6 @@ RUN mkdir -p target/dependency && (cd target/dependency; jar -xf ../*.jar)
 
 FROM openjdk:8-jdk-alpine
 VOLUME /tmp
-ARG JAR_FILE=gerenciar-conta/target/*.jar
+ARG JAR_FILE=gerenciar-pessoa/target/*.jar
 COPY ${JAR_FILE} app.jar
 ENTRYPOINT ["sh", "-c", "java ${JAVA_OPTS} -jar /app.jar ${0} ${@}"]

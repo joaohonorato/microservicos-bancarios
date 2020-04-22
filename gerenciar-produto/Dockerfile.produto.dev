@@ -1,9 +1,9 @@
 FROM java:openjdk-8u111-alpine
 ARG JAR_FILE=gerenciar-produto/target/*.jar
 RUN apk --no-cache add curl
+RUN curl -OL https://raw.githubusercontent.com/mrako/wait-for/master/wait-for && chmod +x wait-for
 CMD ./wait-for -t 300 $EUREKA_HOST:$EUREKA_PORT -- \
-    ./wait-for -t 300 $MYSQL_CONTA_HOST:$MYSQL_CONTA_PORT -- \
+    ./wait-for -t 300 $DB_HOST:$DB_PORT -- \
     echo "All dependencies ready. Starting application..." && \
     java ${JAVA_OPTS} -jar gerenciar-produto.jar
 COPY ${JAR_FILE} gerenciar-produto.jar
-COPY wait-for wait-for

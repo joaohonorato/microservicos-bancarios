@@ -1,7 +1,6 @@
 package com.sistema.produto.gerenciarconta.excecoes;
 
 import com.sistema.produto.gerenciarconta.excecoes.error.ApiError;
-import com.sistema.produto.gerenciarconta.util.Constantes;
 import com.sistema.produto.gerenciarconta.util.i18n.Mensagens;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
