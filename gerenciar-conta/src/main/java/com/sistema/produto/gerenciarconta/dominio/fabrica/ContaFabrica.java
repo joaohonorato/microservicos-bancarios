@@ -4,6 +4,9 @@ import com.sistema.produto.gerenciarconta.dominio.Conta;
 import com.sistema.produto.gerenciarconta.dominio.dtos.ContaDTO;
 import org.springframework.stereotype.Component;
 
+/**
+ * Fabrica responsavel por fornecer entidades e dtos dos objetos
+ */
 @Component
 public class ContaFabrica {
      public ContaDTO buscaDto(Conta conta) {

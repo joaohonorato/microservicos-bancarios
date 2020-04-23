@@ -6,6 +6,9 @@ import com.sistema.produto.gerenciarconta.repositorio.ContaRepositorio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+/**
+ * Contem funcionalidades de utilidade para o sitema
+ */
 @Component
 public class UtilitariosDoSistema {
 

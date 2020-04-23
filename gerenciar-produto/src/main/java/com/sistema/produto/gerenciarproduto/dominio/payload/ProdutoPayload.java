@@ -3,6 +3,9 @@ package com.sistema.produto.gerenciarproduto.dominio.payload;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
+/**
+ * Payload utilizado para criar um produto
+ */
 public class ProdutoPayload {
     @NotNull
     private Long pessoaId;

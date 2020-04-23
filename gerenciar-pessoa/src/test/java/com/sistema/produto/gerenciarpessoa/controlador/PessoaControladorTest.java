@@ -1,7 +1,7 @@
 package com.sistema.produto.gerenciarpessoa.controlador;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.sistema.produto.gerenciarpessoa.dominio.PessoaPayload;
+import com.sistema.produto.gerenciarpessoa.dominio.payload.PessoaPayload;
 import com.sistema.produto.gerenciarpessoa.dominio.dtos.PessoaDTO;
 import com.sistema.produto.gerenciarpessoa.dominio.enums.TipoPessoa;
 import com.sistema.produto.gerenciarpessoa.excecoes.ContaNaoCadastradaExcecao;
@@ -10,7 +10,6 @@ import com.sistema.produto.gerenciarpessoa.util.i18n.Mensagens;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
-import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.beans.factory.annotation.Autowired;

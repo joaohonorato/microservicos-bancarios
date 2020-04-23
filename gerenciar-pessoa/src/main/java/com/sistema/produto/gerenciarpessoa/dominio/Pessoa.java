@@ -12,6 +12,9 @@ import javax.persistence.Id;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
+/**
+ * Entidade representativa da pessoa
+ */
 @Entity
 public class Pessoa {
 

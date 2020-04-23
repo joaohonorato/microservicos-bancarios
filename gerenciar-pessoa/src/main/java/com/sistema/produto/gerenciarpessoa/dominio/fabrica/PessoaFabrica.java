@@ -4,6 +4,9 @@ import com.sistema.produto.gerenciarpessoa.dominio.Pessoa;
 import com.sistema.produto.gerenciarpessoa.dominio.dtos.PessoaDTO;
 import org.springframework.stereotype.Component;
 
+/**
+ * Fabrica responsavel por fornecer entidades e dtos dos objetos
+ */
 @Component
 public class PessoaFabrica {
     public PessoaDTO buscaDto(Pessoa pessoa) {

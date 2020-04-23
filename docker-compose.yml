@@ -37,8 +37,6 @@ services:
       - eureka
     networks:
       - produto-db-network
-      - conta-db-network
-      - pessoa-db-network
       - eureka-network
     ports:
       - "8083:8083"
@@ -69,16 +67,14 @@ services:
       - db-conta
       - eureka
     networks:
-      - produto-db-network
       - conta-db-network
-      - pessoa-db-network
       - eureka-network
     ports:
       - "8082:8082"
   db-pessoa:
     image: mysql:5.7
     networks:
-      - conta-db-network
+      - pessoa-db-network
     restart: always
     ports:
       - "3306:3306"
@@ -102,8 +98,6 @@ services:
       - db-pessoa
       - eureka
     networks:
-      - produto-db-network
-      - conta-db-network
       - pessoa-db-network
       - eureka-network
     ports:

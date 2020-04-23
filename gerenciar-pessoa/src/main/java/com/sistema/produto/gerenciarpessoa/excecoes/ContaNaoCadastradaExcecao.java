@@ -3,6 +3,9 @@ package com.sistema.produto.gerenciarpessoa.excecoes;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
+/**
+ * Excecao a ser lancada quando o nao foi possivel cadastrar a conta
+ */
 @ResponseStatus(value = HttpStatus.BAD_GATEWAY)
 public class ContaNaoCadastradaExcecao extends Throwable {
 

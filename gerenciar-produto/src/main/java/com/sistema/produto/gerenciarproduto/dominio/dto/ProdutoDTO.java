@@ -3,6 +3,9 @@ package com.sistema.produto.gerenciarproduto.dominio.dto;
 import com.sistema.produto.gerenciarproduto.dominio.CartaoCredito;
 import com.sistema.produto.gerenciarproduto.dominio.ChequeEspecial;
 
+/**
+ * Entidade utilizada para trafegar dados entre camadas
+ */
 public class ProdutoDTO {
     private CartaoCredito cartaoCredito;
     private ChequeEspecial chequeEspecial;

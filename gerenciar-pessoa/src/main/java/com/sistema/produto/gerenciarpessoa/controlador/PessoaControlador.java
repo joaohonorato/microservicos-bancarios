@@ -1,7 +1,7 @@
 package com.sistema.produto.gerenciarpessoa.controlador;
 
 import com.sistema.produto.gerenciarpessoa.dominio.ApiResposta;
-import com.sistema.produto.gerenciarpessoa.dominio.PessoaPayload;
+import com.sistema.produto.gerenciarpessoa.dominio.payload.PessoaPayload;
 import com.sistema.produto.gerenciarpessoa.dominio.dtos.PessoaDTO;
 import com.sistema.produto.gerenciarpessoa.excecoes.ContaNaoCadastradaExcecao;
 import com.sistema.produto.gerenciarpessoa.excecoes.EntidadeNaoEncontradaExcecao;
@@ -18,6 +18,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.Valid;
 
+/**
+ * Endpoint da pessoa
+ */
 @RestController
 @RequestMapping("/pessoa")
 public class PessoaControlador {
@@ -25,17 +28,33 @@ public class PessoaControlador {
     private PessoaServico pessoaServico;
     private Mensagens mensangens;
 
-    public PessoaControlador(PessoaServico pessoaServico, Mensagens mensangens) {
+    /**
+     * Construtor para injecao de dependecias
+     * @param pessoaServico
+     * @param mensagens
+     */
+    public PessoaControlador(PessoaServico pessoaServico, Mensagens mensagens) {
         this.pessoaServico = pessoaServico;
-        this.mensangens = mensangens;
+        this.mensangens = mensagens;
     }
-
+    /**
+     * Endpoint responsavel por criar uma pessoa.
+     * @param payload - Informacoes referente a pessoa a ser criada
+     * @return um objeco com informacoes de sucesso e mensagem com detalhe
+     * @throws ContaNaoCadastradaExcecao - Caso nao foi possivel criar uma conta
+     */
     @PostMapping
     public ResponseEntity<ApiResposta<PessoaDTO>> criarPessoa(@Valid @RequestBody PessoaPayload payload) throws ContaNaoCadastradaExcecao {
         PessoaDTO pessoaDTO = pessoaServico.salvar(payload);
         return ResponseEntity.status(HttpStatus.CREATED).body(new ApiResposta<PessoaDTO>(true,mensangens.obterMensagem("pessoa.criada.sucesso"), pessoaDTO));
     }
 
+    /**
+     * Endpoint responsavel por buscar o score de uma pessoa
+     * @param pessoaId - Id da pessoa
+     * @return - Score da pessoal
+     * @throws EntidadeNaoEncontradaExcecao - Se pessoa nao existe
+     */
     @GetMapping("/{pessoaId}/score")
     public ResponseEntity<ApiResposta<Integer>> buscaScore(@PathVariable("pessoaId") Long pessoaId) throws EntidadeNaoEncontradaExcecao {
         Integer score = pessoaServico.buscaScore(pessoaId);

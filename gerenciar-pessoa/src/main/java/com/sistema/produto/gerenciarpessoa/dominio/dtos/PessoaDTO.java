@@ -1,7 +1,9 @@
 package com.sistema.produto.gerenciarpessoa.dominio.dtos;
 
 import com.sistema.produto.gerenciarpessoa.dominio.enums.TipoPessoa;
-
+/**
+ * Entidade utilizada para trafegar dados entre camadas
+ */
 public class PessoaDTO {
 
     private Long id;

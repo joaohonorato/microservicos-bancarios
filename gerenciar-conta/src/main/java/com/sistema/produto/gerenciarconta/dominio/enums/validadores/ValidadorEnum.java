@@ -12,6 +12,9 @@ import java.lang.annotation.Target;
 
 import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
+/**
+ * Interface de anotacao para validar enum
+ */
 @Retention(RUNTIME)
 @Documented
 @Constraint(validatedBy = ValidadorEnumTipoImpl.class)

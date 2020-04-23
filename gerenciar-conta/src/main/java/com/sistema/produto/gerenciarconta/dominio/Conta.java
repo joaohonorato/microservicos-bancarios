@@ -15,6 +15,9 @@ import javax.persistence.Id;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
+/**
+ * Entidade representativa da conta
+ */
 @Entity
 public class Conta {
 

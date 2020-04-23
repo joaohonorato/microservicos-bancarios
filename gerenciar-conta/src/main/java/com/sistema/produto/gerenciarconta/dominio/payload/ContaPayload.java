@@ -5,6 +5,9 @@ import com.sistema.produto.gerenciarconta.dominio.enums.validadores.ValidadorEnu
 
 import javax.validation.constraints.NotNull;
 
+/**
+ * Payload utilizado para criar uma conta
+ */
 public class ContaPayload {
     @NotNull
     private Long pessoaId;

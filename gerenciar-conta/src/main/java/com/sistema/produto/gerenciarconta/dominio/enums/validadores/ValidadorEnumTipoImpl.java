@@ -6,6 +6,9 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+/**
+ * Implementacao da validacao do enum
+ */
 public class ValidadorEnumTipoImpl implements ConstraintValidator<ValidadorEnum, Enum<?>> {
     private List<String> acceptedValues;
 

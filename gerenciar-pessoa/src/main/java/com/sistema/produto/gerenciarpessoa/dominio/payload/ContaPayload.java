@@ -2,6 +2,9 @@ package com.sistema.produto.gerenciarpessoa.dominio.payload;
 
 import com.sistema.produto.gerenciarpessoa.dominio.enums.TipoPessoa;
 
+/**
+ * Payload utilizado para criar uma conta
+ */
 public class ContaPayload {
     private Long pessoaId;
     private TipoPessoa tipoPessoa;

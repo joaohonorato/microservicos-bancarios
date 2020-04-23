@@ -1,10 +1,13 @@
-package com.sistema.produto.gerenciarpessoa.dominio;
+package com.sistema.produto.gerenciarpessoa.dominio.payload;
 
 import com.sistema.produto.gerenciarpessoa.dominio.enums.TipoPessoa;
 import com.sistema.produto.gerenciarpessoa.dominio.enums.validadores.ValidadorEnumTipoPessoa;
 
 import javax.validation.constraints.NotEmpty;
 
+/**
+ * Payload utilizado para criar uma pessoa
+ */
 public class PessoaPayload {
 
     @NotEmpty

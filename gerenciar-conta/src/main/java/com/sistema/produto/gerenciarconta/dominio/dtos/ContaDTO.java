@@ -2,6 +2,9 @@ package com.sistema.produto.gerenciarconta.dominio.dtos;
 
 import com.sistema.produto.gerenciarconta.dominio.enums.TipoConta;
 
+/**
+ * Entidade utilizada para trafegar dados entre camadas
+ */
 public class ContaDTO {
     private String numero;
     private String agencia;

@@ -20,6 +20,9 @@ import javax.validation.ConstraintViolationException;
 
 import static org.springframework.http.HttpStatus.BAD_REQUEST;
 
+/**
+ *  Interceptadores responsaveis por capturar excecoes lancadas
+ */
 @ControllerAdvice
 @Component
 public class TratadorGeralDeExcecoes extends ResponseEntityExceptionHandler {

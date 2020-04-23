@@ -8,6 +8,9 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 
+/**
+ * Entidade representativa do cheque especial
+ */
 @Entity
 public class ChequeEspecial {
     @Id

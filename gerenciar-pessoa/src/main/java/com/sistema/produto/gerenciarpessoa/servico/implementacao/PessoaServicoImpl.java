@@ -2,7 +2,7 @@ package com.sistema.produto.gerenciarpessoa.servico.implementacao;
 
 import com.sistema.produto.gerenciarpessoa.dominio.ApiResposta;
 import com.sistema.produto.gerenciarpessoa.dominio.Pessoa;
-import com.sistema.produto.gerenciarpessoa.dominio.PessoaPayload;
+import com.sistema.produto.gerenciarpessoa.dominio.payload.PessoaPayload;
 import com.sistema.produto.gerenciarpessoa.dominio.dtos.PessoaDTO;
 import com.sistema.produto.gerenciarpessoa.dominio.fabrica.PessoaFabrica;
 import com.sistema.produto.gerenciarpessoa.dominio.payload.ContaPayload;

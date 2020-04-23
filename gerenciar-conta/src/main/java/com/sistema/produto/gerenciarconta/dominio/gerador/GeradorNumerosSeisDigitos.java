@@ -13,6 +13,9 @@ import org.springframework.stereotype.Component;
 import java.io.Serializable;
 import java.util.Properties;
 
+/**
+ * Gerador de numeros de seis digitos utilizando o gerador de sequencias do hibernate
+ */
 @Component
 public class GeradorNumerosSeisDigitos extends SequenceStyleGenerator {
     public static final String VALUE_PREFIX_PARAMETER = "prefixoDoValor";

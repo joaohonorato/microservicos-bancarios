@@ -2,6 +2,10 @@ package com.sistema.produto.gerenciarpessoa.dominio;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 
+/**
+ * Contrato de comunicacao entre api, com informacao de sucesso, mensagem e
+ * @param <T> a entidade de interesse
+ */
 public class ApiResposta<T> {
     private Boolean sucesso;
     private String mensagem;

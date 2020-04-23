@@ -8,6 +8,9 @@ import org.springframework.stereotype.Component;
 
 import java.util.Locale;
 
+/**
+ * Responsavel por obter mensagens do bundle
+ */
 @Component
 public class Mensagens {
 

@@ -14,6 +14,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.Valid;
 
+/**
+ * Endpoint da conta
+ */
 @RestController
 @RequestMapping("conta")
 public class ContaControlador {
@@ -22,11 +25,22 @@ public class ContaControlador {
 
     private Mensagens mensagens;
 
+    /**
+     * Construtor para injecao de dependecias
+     * @param contaServico
+     * @param mensagens
+     */
     public ContaControlador(ContaServico contaServico, Mensagens mensagens) {
         this.contaServico = contaServico;
         this.mensagens = mensagens;
     }
 
+    /**
+     * Endpoint responsavel por criar uma conta.
+     * @param payload - Informacoes referente a conta a ser criada
+     * @return um objeco com informacoes de sucesso e mensagem com detalhe
+     * @throws NumeroDeContasChegouAoLimiteExcecao - Caso as contas ultrapesse o numero limite de contas
+     */
     @PostMapping
     public ResponseEntity<ApiResposta> criarContaParaPessoa(@Valid @RequestBody ContaPayload payload) throws NumeroDeContasChegouAoLimiteExcecao {
         contaServico.criarContaDePessoa(payload);

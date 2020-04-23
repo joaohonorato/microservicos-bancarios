@@ -1,4 +1,4 @@
-package com.sistema.produto.gerenciarproduto.dominio;
+package com.sistema.produto.gerenciarproduto.dominio.dto;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,24 +9,31 @@ import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 
 /**
- * Entidade representativa da cartao credito
+ * Entidade utilizada para trafegar dados entre camadas
  */
 @Entity
-public class CartaoCredito {
+public class ChequeEspecialDTO {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
-    @NotNull
     private BigDecimal limite;
     @NotEmpty
     private String numeroConta;
+    @NotNull
+    private Boolean habilidatada;
 
-    public CartaoCredito() {
+    public ChequeEspecialDTO() {
     }
 
-    public CartaoCredito(BigDecimal limite, String numeroConta) {
+    public ChequeEspecialDTO(String numeroConta, Boolean habilidatada) {
+        this.numeroConta = numeroConta;
+        this.habilidatada = habilidatada;
+    }
+
+    public ChequeEspecialDTO(BigDecimal limite, String numeroConta, Boolean habilidatada) {
         this.limite = limite;
         this.numeroConta = numeroConta;
+        this.habilidatada = habilidatada;
     }
 
     public Long getId() {
